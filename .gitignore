@@ -103,5 +103,5 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # Provided puzzle inputs
-*/example.txt
+example.txt
 */input.txt
