@@ -62,9 +62,7 @@ fn part_one(input: &str) {
                 }
                 _ => panic!("Malformed symbol!"),
             };
-            if next_guard_coords.0 < 0 || next_guard_coords.1 < 0 {
-                break 'next_coords_validity;
-            }
+
             if next_guard_coords.0 >= grid.len() || next_guard_coords.1 >= grid[0].len() {
                 break 'next_coords_validity;
             }
@@ -74,9 +72,7 @@ fn part_one(input: &str) {
         }
         let current_symbol = grid[guard_coords.0][guard_coords.1];
         grid[guard_coords.0][guard_coords.1] = 'X';
-        if next_guard_coords.0 < 0 || next_guard_coords.1 < 0 {
-            break 'travel_loop;
-        }
+
         if next_guard_coords.0 >= grid.len() || next_guard_coords.1 >= grid[0].len() {
             break 'travel_loop;
         }
@@ -169,9 +165,7 @@ fn part_two(input: &str) {
                         }
                         _ => panic!("Malformed symbol!"),
                     };
-                    if next_guard_coords.0 < 0 || next_guard_coords.1 < 0 {
-                        break 'travel_loop;
-                    }
+
                     if next_guard_coords.0 >= grid.len() || next_guard_coords.1 >= grid[0].len() {
                         break 'travel_loop;
                     }
@@ -181,14 +175,12 @@ fn part_two(input: &str) {
                 }
                 let current_symbol = grid[guard_coords.0][guard_coords.1];
                 grid[guard_coords.0][guard_coords.1] = 'X';
-                if next_guard_coords.0 < 0 || next_guard_coords.1 < 0 {
-                    break 'travel_loop;
-                }
+
                 if next_guard_coords.0 >= grid.len() || next_guard_coords.1 >= grid[0].len() {
                     break 'travel_loop;
                 }
                 grid[next_guard_coords.0][next_guard_coords.1] = current_symbol;
-                let mut prev_directions =
+                let prev_directions =
                     &mut directions_grid[next_guard_coords.0][next_guard_coords.1];
                 if prev_directions.contains(&current_symbol) {
                     sum += 1;
