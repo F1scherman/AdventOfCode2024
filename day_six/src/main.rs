@@ -3,7 +3,6 @@ fn main() {
     part_two(input);
 }
 
-// NOTE: run this file in release mode and/or with panicking integer underflow turned off. it works as intended even when underflows occur
 fn part_one(input: &str) {
     let mut grid = input
         .lines()
